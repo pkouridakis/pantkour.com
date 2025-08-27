@@ -36,7 +36,7 @@ export default function Projects() {
                   }`}
               >
                 {project.type}
-              </span><p>Available on request</p>
+              </span>
               </div>
 
               {/* Year */}
