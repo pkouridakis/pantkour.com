@@ -10,7 +10,7 @@ export default function AboutPage() {
         My interests lie in solving real-world challenges with AI, particularly in Earth Observation, and the Space Sector. 🌍🚀 
       </p>
       <a
-        href="/docs/Pantelis_Kouridakis_CV.pdf"
+        href="/docs/PANTELIS_KOURIDAKIS_CV.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="underline"
