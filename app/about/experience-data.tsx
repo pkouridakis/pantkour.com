@@ -23,7 +23,7 @@ export const experienceData: {
       period: "May 2024 - Present",
       description: "Generali Hellas",
       location: "Athens, Greece",
-      techStack: ["Power Platform", "Python", "OpenCV"],
+      techStack: ["Power Platform", "Python", "SQL", "OpenCV"],
     },
     {
       title: "RPA Developer",
