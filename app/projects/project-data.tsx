@@ -14,7 +14,7 @@ export const projects: Project[] = [
     description: "ML model predicting wildfire risk using historical data",
     url: "https://pantkour-com.vercel.app/projects",
     type: "Project",
-    techStack: ["Python", "Scikit-learn", "Pandas"],
+    techStack: ["Python", "Scikit-learn", "React.js", "PostgreSQL", "Rest APIs"],
   },
   {
     title: "Chatbot with LangChain",
@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description: "A conversational AI assistant built with LangChain and LLMs",
     url: "https://github.com/PantelisKour/chatbot_langchain",
     type:"Project",
-    techStack: ["Python", "Pandas"],
+    techStack: ["Python", "LangChain", "Pandas"],
   },
   {
     title: "Mechanisms for Analyzing 3D Point Clouds",
