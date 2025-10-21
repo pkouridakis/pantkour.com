@@ -19,7 +19,7 @@ export const projects: Project[] = [
   {
     title: "Chatbot with LangChain",
     year: 2024,
-    description: "A conversational AI assistant built with LangChain and LLMs",
+    description: "AI assistant built with LangChain and Llama 2 for interactive, context-aware conversations.",
     url: "https://github.com/PantelisKour/chatbot_langchain",
     type:"Project",
     techStack: ["Python", "LangChain", "Pandas"],
