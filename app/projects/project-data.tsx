@@ -11,7 +11,7 @@ export const projects: Project[] = [
   {
     title: "Wildfire Prediction",
     year: 2025,
-    description: "ML model predicting wildfire risk using historical data",
+    description: "ML-based app that predicts wildfire risk for a selected location on the map, providing a 10-day forecast.",
     url: "https://pantkour-com.vercel.app/projects",
     type: "Project",
     techStack: ["Python", "Scikit-learn", "React.js", "PostgreSQL", "Rest APIs"],
