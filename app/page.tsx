@@ -19,11 +19,11 @@ export default function Page() {
           I'm a Machine Learning Engineer & Space AI Explorer.
         </p>
         <p>
-          I craft intelligent systems that turn data into discovery. From AI-powered chatbots to Earth observation analytics, 
-          I focus on applying cutting-edge machine learning to solve real-world challenges and drive impact in the space and environmental sectors.
-          .
+          I build intelligent systems that turn raw data into discovery – from ML-powered wildfire forecasting and Earth observation platforms to context-aware chatbots and 
+          computer vision. Previously strengthened my engineering foundation with 3 years as an RPA Engineer (Power Automate), 
+          now fully focused on geospatial ML, predictive systems, and impactful space/environmental applications.
         </p>
-        <p>
+        <p> 
            Based in Athens, Greece 🇬🇷
         </p>
         <b>
@@ -33,3 +33,5 @@ export default function Page() {
     </section>
   );
 }
+/*I craft intelligent systems that turn data into discovery. From AI-powered chatbots to Earth observation analytics, 
+I focus on applying cutting-edge machine learning to solve real-world challenges and drive impact in the space and environmental sectors.*/
