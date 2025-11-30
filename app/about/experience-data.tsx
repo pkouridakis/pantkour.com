@@ -49,7 +49,7 @@ export const experienceData: {
     },
     {
       title: "BASc in Computer Science and Engineering",
-      period: "2015 - 2023",
+      period: "2015 - 2021",
       description: "University of Peloponnese",
       techStack: ["Python", "C++","Java", "Algorithms"],
     },
