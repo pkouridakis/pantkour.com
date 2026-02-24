@@ -8,7 +8,7 @@ export const metaData = {
 };
 
 export const socialLinks = {
-  github: "https://github.com/PantelisKour",
+  github: "https://github.com/pkouridakis",
   linkedin: "https://www.linkedin.com/in/pantelis-kouridakis/",
   email: "mailto:kouridakispantelis@gmail.com",
 };
