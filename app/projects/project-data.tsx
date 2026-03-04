@@ -9,8 +9,16 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Career Coach Recommender",
+    year: 2026,
+    description: "RecommenderCertificate recommendation engine combining content-based filtering, co-occurrence analysis, and semantic similarity via sentence embeddings.",
+    url: "https://github.com/pkouridakis/career-coach-recommender",
+    type: "Project",
+    techStack: ["Python", "FastAPI", "NLP", "Pandas", "Matplotlib"]
+  },
+  {
     title: "NDVI Time-Series Explorer",
-    year: 2025,
+    year: 2026,
     description: "Satellite-based vegetation monitoring using Sentinel-2 data and Google Earth Engine for detecting deforestation and post-fire recovery.",
     url: "https://github.com/PantelisKour/ndvi-time-series-explorer",
     type: "Project",
@@ -28,7 +36,7 @@ export const projects: Project[] = [
     title: "Chatbot with LangChain",
     year: 2024,
     description: "Built an interactive AI assistant using LangChain and Llama 2 for intelligent, context-aware conversations.",
-    url: "https://github.com/PantelisKour/chatbot_langchain",
+    url: "https://github.com/pkouridakis/chatbot_langchain",
     type: "Project",
     techStack: ["Python", "LangChain", "Pandas", "Transformers"],
   },
