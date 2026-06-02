@@ -45,7 +45,7 @@ export const siteConfig = {
       description:
         "Satellite-based vegetation monitoring using Sentinel-2 data and Google Earth Engine for detecting deforestation and post-fire recovery.",
       link: "https://github.com/pkouridakis/ndvi-time-series-explorer",
-      categories: ["geo", "ml"],
+      categories: ["geo"],
       skills: ["Python", "Google Earth Engine", "Pandas", "Matplotlib"],
     },
     {
@@ -69,7 +69,7 @@ export const siteConfig = {
       description:
         "Techniques for processing, visualizing, and extracting insights from large-scale 3D point cloud data.",
       link: "https://github.com/pkouridakis/",
-      categories: ["ml"],
+      categories: ["th"],
       skills: ["Python", "Pandas", "NumPy"],
     },
   ],
