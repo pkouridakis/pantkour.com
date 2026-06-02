@@ -1,0 +1,68 @@
+---
+import { siteConfig } from "../config";
+
+const skillColors: Record<string, string> = {
+  "Python": "#3776AB",
+  "Machine Learning": "#FF6F00",
+  "Geospatial Analysis": "#2E7D32",
+  "NLP": "#7B1FA2",
+  "FastAPI": "#009688",
+};
+---
+
+<div>
+  <h2 class="section-title">About Me</h2>
+  <div class="section-bar"></div>
+
+  <p class="about-text mb-8" style="text-align: justify">{siteConfig.aboutMe}</p>
+
+  <!-- What I'm Doing -->
+  {siteConfig.services && siteConfig.services.length > 0 && (
+    <div class="mb-8">
+      <h3 class="text-base font-semibold mb-4" style="color: var(--text)">What I'm Doing</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {siteConfig.services.map((service) => (
+          <div class="service-card">
+            <div class="service-icon">{service.icon}</div>
+            <div>
+              <h4 class="service-title">{service.title}</h4>
+              <p class="service-desc" style="text-align: justify">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- Skills -->
+  {siteConfig.skills && siteConfig.skills.length > 0 && (
+    <div>
+      <h3 class="text-base font-semibold mb-3" style="color: var(--text)">Skills</h3>
+      <!-- Desktop: 5 columns | Mobile: 2-3 columns -->
+      <div class="skills-grid">
+        {siteConfig.skills.map((skill) => (
+          <div
+            class="skill-badge text-center"
+            style={skillColors[skill] ? `border-color: ${skillColors[skill]}44` : ''}
+          >
+            {skill}
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .skills-grid {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 480px) {
+    .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .skills-grid { grid-template-columns: repeat(5, 1fr); }
+  }
+</style>

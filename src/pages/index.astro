@@ -1,0 +1,177 @@
+---
+import Sidebar from "../components/Sidebar.astro";
+import AboutTab from "../components/AboutTab.astro";
+import ResumeTab from "../components/ResumeTab.astro";
+import PortfolioTab from "../components/PortfolioTab.astro";
+import ContactTab from "../components/ContactTab.astro";
+import { siteConfig } from "../config";
+import "../styles/global.css";
+---
+
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>{siteConfig.name} — {siteConfig.title}</title>
+    <meta name="description" content={siteConfig.description} />
+    <meta name="author" content={siteConfig.name} />
+    <meta name="keywords" content="Data Scientist, Machine Learning, Geospatial, Earth Observation, Space AI, Python, Portfolio" />
+    <link rel="canonical" href="https://pantkour-com.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pantkour-com.vercel.app/" />
+    <meta property="og:title" content={`${siteConfig.name} — ${siteConfig.title}`} />
+    <meta property="og:description" content={siteConfig.description} />
+    <meta property="og:image" content="/avatar.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={`${siteConfig.name} — ${siteConfig.title}`} />
+    <meta name="twitter:description" content={siteConfig.description} />
+    <meta name="twitter:image" content="/avatar.jpg" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/jpeg" href="/avatar.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <!-- Theme toggle button -->
+    <button
+      id="theme-toggle"
+      aria-label="Toggle theme"
+      class="fixed top-4 right-4 z-50 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200"
+    >
+      <!-- Sun icon (shown in dark mode) -->
+      <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+      </svg>
+      <!-- Moon icon (shown in light mode) -->
+      <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+      </svg>
+    </button>
+
+    <!-- Desktop layout -->
+    <div class="hidden lg:block min-h-screen px-16 py-10">
+      <div class="max-w-[1000px] mx-auto flex flex-row gap-7 items-start">
+        <Sidebar />
+        <div class="flex-1 rounded-2xl overflow-hidden main-card">
+          <nav class="flex justify-end gap-1 px-5 py-2.5 border-b tab-nav">
+            <button class="tab-btn active" data-tab="about">About</button>
+            <button class="tab-btn" data-tab="resume">Resume</button>
+            <button class="tab-btn" data-tab="portfolio">Portfolio</button>
+            <button class="tab-btn" data-tab="contact">Contact</button>
+          </nav>
+          <div class="p-8">
+            <div id="tab-about" class="tab-panel active"><AboutTab /></div>
+            <div id="tab-resume" class="tab-panel"><ResumeTab /></div>
+            <div id="tab-portfolio" class="tab-panel"><PortfolioTab /></div>
+            <div id="tab-contact" class="tab-panel"><ContactTab /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile layout -->
+    <div class="lg:hidden flex flex-col min-h-screen pb-16">
+      <!-- Mobile compact header -->
+      <Sidebar />
+
+      <!-- Content -->
+      <div class="flex-1 px-3 pt-2 pb-4">
+        <div id="mob-tab-about" class="mob-tab-panel active"><AboutTab /></div>
+        <div id="mob-tab-resume" class="mob-tab-panel"><ResumeTab /></div>
+        <div id="mob-tab-portfolio" class="mob-tab-panel"><PortfolioTab /></div>
+        <div id="mob-tab-contact" class="mob-tab-panel"><ContactTab /></div>
+      </div>
+
+      <!-- Bottom nav bar -->
+      <nav class="fixed bottom-0 left-0 right-0 z-40 flex justify-around items-center px-2 py-2 border-t mobile-bottom-nav">
+        <button class="mob-tab-btn active" data-tab="about">About</button>
+        <button class="mob-tab-btn" data-tab="resume">Resume</button>
+        <button class="mob-tab-btn" data-tab="portfolio">Portfolio</button>
+        <button class="mob-tab-btn" data-tab="contact">Contact</button>
+      </nav>
+    </div>
+
+    <script>
+      // Desktop tab switching
+      const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+      const tabPanels = document.querySelectorAll<HTMLElement>('.tab-panel');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.tab;
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanels.forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(`tab-${target}`)?.classList.add('active');
+        });
+      });
+
+      // Mobile tab switching
+      const mobBtns = document.querySelectorAll<HTMLButtonElement>('.mob-tab-btn');
+      const mobPanels = document.querySelectorAll<HTMLElement>('.mob-tab-panel');
+      mobBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.tab;
+          mobBtns.forEach(b => b.classList.remove('active'));
+          mobPanels.forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(`mob-tab-${target}`)?.classList.add('active');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      // Theme toggle
+      const html = document.documentElement;
+      const toggleBtn = document.getElementById('theme-toggle')!;
+      const iconSun = document.getElementById('icon-sun')!;
+      const iconMoon = document.getElementById('icon-moon')!;
+
+      // Default = light. Apply saved preference if exists.
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        iconSun.classList.remove('hidden');
+        iconMoon.classList.add('hidden');
+      } else {
+        // light is default — icon: show moon so user can switch to dark
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        const isLight = html.classList.contains('light');
+        if (isLight) {
+          html.classList.remove('light');
+          html.classList.add('dark');
+          iconSun.classList.remove('hidden');
+          iconMoon.classList.add('hidden');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          html.classList.remove('dark');
+          html.classList.add('light');
+          iconSun.classList.add('hidden');
+          iconMoon.classList.remove('hidden');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    </script>
+  </body>
+</html>

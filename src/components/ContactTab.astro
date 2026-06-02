@@ -1,0 +1,70 @@
+---
+import { siteConfig } from "../config";
+---
+
+<div>
+  <h2 class="section-title">Contact</h2>
+  <div class="section-bar"></div>
+
+  <p class="about-text mb-8">
+    Interested in working together or have a question? Feel free to reach out directly via email.
+  </p>
+
+  {siteConfig.social?.email && (
+    <a
+      href={`mailto:${siteConfig.social.email}`}
+      class="contact-email-btn inline-flex items-center gap-3 px-6 py-4 rounded-xl transition-all duration-200 group"
+    >
+      <div class="contact-email-icon w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-email-svg">
+          <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><path d="M3 7l9 6 9-6"/>
+        </svg>
+      </div>
+      <div>
+        <p class="contact-email-label text-xs font-semibold uppercase tracking-wider transition-colors">Email</p>
+        <p class="contact-email-value text-sm font-medium">{siteConfig.social.email}</p>
+      </div>
+    </a>
+  )}
+</div>
+
+<style>
+  .contact-email-btn {
+    background: var(--bg-elem);
+    border: 1px solid var(--border-2);
+    color: var(--text-muted);
+  }
+  .contact-email-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+  }
+  .contact-email-icon {
+    background: var(--bg-icon);
+    stroke: var(--accent);
+  }
+  .contact-email-btn:hover .contact-email-icon {
+    background: rgba(0,0,0,0.15);
+  }
+  .contact-email-svg {
+    stroke: var(--accent);
+    transition: stroke 0.2s;
+  }
+  .contact-email-btn:hover .contact-email-svg {
+    stroke: var(--accent-text);
+  }
+  .contact-email-label {
+    color: var(--accent);
+    transition: color 0.2s;
+  }
+  .contact-email-btn:hover .contact-email-label {
+    color: var(--accent-text);
+  }
+  .contact-email-value {
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .contact-email-btn:hover .contact-email-value {
+    color: var(--accent-text);
+  }
+</style>

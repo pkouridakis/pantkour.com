@@ -1,0 +1,116 @@
+---
+import { siteConfig } from "../config";
+
+const categoryLabels: Record<string, string> = {
+  geo: "Geospatial",
+  ml:  "Machine Learning",
+  web: "Web & APIs",
+};
+---
+
+<div>
+  <h2 class="section-title">Portfolio</h2>
+  <div class="section-bar"></div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    {siteConfig.projects.map((project) => {
+      const cats: string[] = (project as any).categories ?? [];
+      return (
+        <div class="p-card">
+          {cats.length > 0 && (
+            <div class="flex gap-2 flex-wrap mb-1">
+              {cats.map(c => (
+                <span class="p-tag">{categoryLabels[c] ?? c}</span>
+              ))}
+            </div>
+          )}
+          <h3 class="p-title">{project.name}</h3>
+          <p class="p-desc">{project.description}</p>
+          <div class="p-footer">
+            <div class="p-skills">
+              {project.skills?.slice(0, 3).map(s => (
+                <span class="p-skill-chip">{s}</span>
+              ))}
+            </div>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" class="p-link">
+              Explore →
+            </a>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  .p-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .p-card:hover {
+    border-color: var(--accent);
+    border-left-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .p-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .p-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.35;
+  }
+  .p-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    flex: 1;
+    text-align: justify;
+  }
+  .p-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+    gap: 8px;
+  }
+  .p-skills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .p-skill-chip {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+  .p-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+    flex-shrink: 0;
+  }
+  .p-link:hover { color: var(--accent); }
+</style>

@@ -1,59 +1,187 @@
-# Nextfolio
+<img width="1943" height="1093" alt="image" src="https://github.com/user-attachments/assets/cc2ff955-17c2-48c7-81c8-479a0f061850" />
 
-A clean, fast, and lightweight portfolio template built with [Next.js](https://nextjs.org/), [Vercel](https://vercel.com/), and [Tailwind CSS](https://tailwindcss.com/).
+# DevPortfolio Template
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F1msirius%2FNextfolio)
+A modern, minimalist portfolio template built with Astro and Tailwind CSS. Perfect for developers looking to showcase their skills, experience, and projects in a clean, professional way.
 
-## Technologies Used
+This was completely rebuilt from the ground up from V1. This template was built to be entirely ready to go with a quick config edit (see below) but also provides the ability to easily extend in whatever way you want.
 
-- Framework: [Next.js](https://nextjs.org/)
-- Styling: [Tailwind CSS](https://tailwindcss.com/)
-- Analytics: [Vercel Web Analytics](https://vercel.com/docs/speed-insights) and [Speed Insights](https://vercel.com/docs/speed-insights)
-- Deployment: [Vercel](https://vercel.com/)
+This template also comes with `CLAUDE.md` and `.cursor/rules` files for easy integration with your existing AI workflows.
 
-## Features
+> **📬 Connect & Share!**  
+> For questions and updates, feel free to reach out on [**X (Twitter)**](https://x.com/rfitzio).  
+> If you've built and published your personal site with this template, I'd love to see it! Send me a DM 🚀
 
-- **[MDX](https://mdxjs.com/) Support**: Use Markdown with JSX components for blog posts.
-- **Light and Dark Mode Toggle**: Switch between themes for better readability.
-- **Dynamic [OG Images](https://vercel.com/docs/functions/og-image-generation)**: Auto-generate Open Graph images for sharing.
-- **SEO Optimization**: Enhance search visibility with sitemap, robots.txt, and JSON-LD schema.
-- **Dynamic Feed Generation**: Automatic dynamic [RSS](https://nextfolio-template.vercel.app/rss.xml), [Atom](https://nextfolio-template.vercel.app/atom.xml), and [JSON](https://nextfolio-template.vercel.app/feed.json) feeds.
-- **[KaTeX](https://katex.org/) Integration**: Render mathematical expressions smoothly.
-- **Performance Tracking**: Monitor web performance with [Vercel Web Analytics](https://vercel.com/docs/speed-insights) and [Speed Insights](https://vercel.com/docs/speed-insights).
-- **Interactive Embeds**: Easily embed interactive tweets and YouTube videos.
-- **Captions**: Add descriptive captions to photos, tweets, and videos.
-- **Image Grid**: Easily showcase image galleries or photos.
+## Preview
 
-## Installation
+To view a live preview of the site, [click here](https://ryanfitzgerald.github.io/devportfolio/).
 
-Nextfolio uses [pnpm](https://pnpm.io/installation) for dependency management, so ensure it is installed on your system.
+## Built With
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
+- **[Astro](https://astro.build/)** - Static site generator for modern web apps
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Tabler Icons](https://tabler.io/icons)** - Free and open source icons
+- **TypeScript** - For type-safe configuration
+
+## Updating the Template
+
+### Configuration
+
+The template is designed to be easily customizable through the `src/config.ts` file. This single file controls:
+
+- **Personal Information**: Name, title, description
+- **Accent Color**: Primary color theme (changing this will change the accent color site wide)
+- **Social Links**: Email, LinkedIn, Twitter, GitHub (all optional)
+- **About Section**: Personal bio/description
+- **Skills**: List of technical skills
+- **Projects**: Project showcase with descriptions and links
+- **Experience**: Work history with bullet points
+- **Education**: Educational background and achievements
+
+If skills, projects, experience, or education are removed from the config, those sections will be hidden entirely.
+
+### Example structures
+
+Here's what the config data structure looks like for each section:
+
+#### Basic Information
+```typescript
+name: "Your Name",
+title: "Your Job Title",
+description: "Brief site description",
+accentColor: "#1d4ed8", // Hex color for theme
+```
+
+#### Social Links (all optional)
+```typescript
+social: {
+  email: "your-email@example.com",
+  linkedin: "https://linkedin.com/in/yourprofile",
+  twitter: "https://twitter.com/yourprofile", 
+  github: "https://github.com/yourusername",
+}
+```
+
+#### About Section
+```typescript
+aboutMe: "A paragraph describing yourself, your background, interests, and what you're passionate about. This appears in the About section of your portfolio."
+```
+
+#### Skills
+```typescript
+skills: ["JavaScript", "React", "Node.js", "Python", "AWS", "Docker"]
+```
+
+#### Projects
+```typescript
+projects: [
+  {
+    name: "Project Name",
+    description: "Brief description of what the project does and its impact",
+    link: "https://github.com/yourusername/project",
+    skills: ["React", "Node.js", "AWS"], // Technologies used
+  }
+]
+```
+
+#### Experience
+```typescript
+experience: [
+  {
+    company: "Company Name",
+    title: "Your Job Title",
+    dateRange: "Jan 2022 - Present",
+    bullets: [
+      "Led development of microservices architecture serving 1M+ users",
+      "Reduced API response times by 40% through optimization",
+      "Mentored team of 5 junior developers",
+    ],
+  }
+]
+```
+
+#### Education
+```typescript
+education: [
+  {
+    school: "University Name",
+    degree: "Bachelor of Science in Computer Science",
+    dateRange: "2014 - 2018",
+    achievements: [
+      "Graduated Magna Cum Laude with 3.8 GPA",
+      "Dean's List all semesters",
+      "President of Computer Science Club"
+    ]
+  }
+]
+```
+
+### Icons
+
+The template uses [Tabler Icons](https://tabler.io/icons) for all icons. If you wish to add more icons and have it look consistent with what's already there, you can browse through their extensive icon library.
+
+## Project Structure
 
 ```
-pnpm create next-app --example https://github.com/1msirius/Nextfolio my-portfolio
+devportfolio/
+├── public/
+│   └── favicon.svg          # Site favicon
+├── src/
+│   ├── components/          # Astro components
+│   │   ├── About.astro      # About section
+│   │   ├── Education.astro  # Education section
+│   │   ├── Experience.astro # Work experience section
+│   │   ├── Footer.astro     # Site footer
+│   │   ├── Header.astro     # Navigation header
+│   │   ├── Hero.astro       # Hero/intro section
+│   │   └── Projects.astro   # Projects showcase
+│   ├── pages/
+│   │   └── index.astro      # Main page layout
+│   ├── styles/
+│   │   └── global.css       # Global styles
+│   └── config.ts            # Site configuration
+├── astro.config.mjs         # Astro configuration
+├── package.json             # Project dependencies
+├── tailwind.config.js       # Tailwind configuration
+└── tsconfig.json            # TypeScript configuration
 ```
 
-Start the development server:
+## Local Development
+
+If you'd like to run it locally:
 
 ```
-pnpm dev
+git clone https://github.com/RyanFitzgerald/devportfolio.git
+cd devportfolio
+npm install
 ```
 
-The server will be running at [http://localhost:3000](http://localhost:3000).
+After that, start up the Astro dev server with:
 
-## Configuration
+```
+npm run dev
+```
 
-1. Update the site metadata and social links in `app/config.ts` to set up SEO, feeds, social links, and Open Graph settings.
-2. Update your routes in `app/sitemap.ts` for SEO optimization.
-3. Update your blog posts in the `/content` folder.
+## Deployment
 
-For more information about configuration, follow the instructions in the [Getting Started](https://nextfolio-template.vercel.app/blog/getting-started#configuration) post.
+The template can be deployed to any static hosting service easily (and in most cases, completely free). Here are some options:
 
-## Contributing
+- To deploy with Netlify, [click here](https://docs.astro.build/en/guides/deploy/netlify/).
+- To deploy with Vercel, [click here](https://docs.astro.build/en/guides/deploy/vercel/).
+- To deploy with GitHub Pages, [click here](https://docs.astro.build/en/guides/deploy/github/).
+- To deploy with Cloudflare Pages, [click here](https://docs.astro.build/en/guides/deploy/cloudflare/).
+- To deploy with Render, [click here](https://docs.astro.build/en/guides/deploy/render/).
 
-Contributions are welcome! To get involved, just push your code to the repo. Whether you're enhancing existing features or adding new ones, your efforts are greatly appreciated!
+Want to deploy somewhere else? Find more guides [here](https://docs.astro.build/en/guides/deploy/).
 
-## Licence
+## Changelog
 
-Nextfolio is open-source and released under the MIT License.
+To view the changelog, see CHANGELOG.md.
+
+## License
+
+This project is fully and completely MIT. See LICENSE.md.
+
+## Questions?
+
+Feel free to reach out on [X (Twitter)](https://x.com/rfitzio) if you have any questions or need help.
