@@ -106,6 +106,15 @@ import "../styles/global.css";
         <button class="mob-tab-btn" data-tab="resume">Resume</button>
         <button class="mob-tab-btn" data-tab="portfolio">Portfolio</button>
         <button class="mob-tab-btn" data-tab="contact">Contact</button>
+        <!-- Theme toggle in bottom nav -->
+        <button id="mob-theme-toggle" aria-label="Toggle theme" class="mob-tab-btn flex flex-col items-center gap-0.5">
+          <svg id="mob-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg id="mob-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+          </svg>
+        </button>
       </nav>
     </div>
 
@@ -128,8 +137,9 @@ import "../styles/global.css";
       const mobPanels = document.querySelectorAll<HTMLElement>('.mob-tab-panel');
       mobBtns.forEach(btn => {
         btn.addEventListener('click', () => {
+          if (!btn.dataset.tab) return; // skip theme toggle
           const target = btn.dataset.tab;
-          mobBtns.forEach(b => b.classList.remove('active'));
+          mobBtns.forEach(b => { if (b.dataset.tab) b.classList.remove('active'); });
           mobPanels.forEach(p => p.classList.remove('active'));
           btn.classList.add('active');
           document.getElementById(`mob-tab-${target}`)?.classList.add('active');
@@ -156,22 +166,30 @@ import "../styles/global.css";
         iconMoon.classList.remove('hidden');
       }
 
-      toggleBtn.addEventListener('click', () => {
-        const isLight = html.classList.contains('light');
-        if (isLight) {
-          html.classList.remove('light');
-          html.classList.add('dark');
-          iconSun.classList.remove('hidden');
-          iconMoon.classList.add('hidden');
+      function applyTheme(dark: boolean) {
+        if (dark) {
+          html.classList.remove('light'); html.classList.add('dark');
+          iconSun.classList.remove('hidden'); iconMoon.classList.add('hidden');
+          mobIconSun?.classList.remove('hidden'); mobIconMoon?.classList.add('hidden');
           localStorage.setItem('theme', 'dark');
         } else {
-          html.classList.remove('dark');
-          html.classList.add('light');
-          iconSun.classList.add('hidden');
-          iconMoon.classList.remove('hidden');
+          html.classList.remove('dark'); html.classList.add('light');
+          iconSun.classList.add('hidden'); iconMoon.classList.remove('hidden');
+          mobIconSun?.classList.add('hidden'); mobIconMoon?.classList.remove('hidden');
           localStorage.setItem('theme', 'light');
         }
-      });
+      }
+
+      const mobIconSun = document.getElementById('mob-icon-sun');
+      const mobIconMoon = document.getElementById('mob-icon-moon');
+
+      // Sync initial state for mob icons
+      if (saved === 'dark') {
+        mobIconSun?.classList.remove('hidden'); mobIconMoon?.classList.add('hidden');
+      }
+
+      toggleBtn.addEventListener('click', () => applyTheme(html.classList.contains('light')));
+      document.getElementById('mob-theme-toggle')?.addEventListener('click', () => applyTheme(html.classList.contains('light')));
     </script>
   </body>
 </html>

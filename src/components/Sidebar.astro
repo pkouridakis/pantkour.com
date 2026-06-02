@@ -79,32 +79,37 @@ import { siteConfig } from "../config";
 </aside>
 
 <!-- MOBILE header (visible only on mobile) -->
-<div class="lg:hidden sidebar-card rounded-2xl p-4 mb-4 flex items-center gap-4">
-  <div class="w-16 h-16 rounded-xl overflow-hidden sidebar-icon-bg flex-shrink-0 border" style="border-color: var(--border)">
+<div class="lg:hidden sidebar-card rounded-2xl p-5 mb-4 flex items-center gap-5">
+  <div class="w-24 h-24 rounded-2xl overflow-hidden sidebar-icon-bg flex-shrink-0 border-2" style="border-color: var(--border)">
     <img src={siteConfig.avatar} alt={siteConfig.name} class="w-full h-full object-cover"
-      onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.5rem\'>👤</div>'" />
+      onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem\'>👤</div>'" />
   </div>
   <div class="flex-1 min-w-0">
-    <h1 class="text-base font-bold" style="color: var(--text)">{siteConfig.name}</h1>
-    <p class="text-xs mt-0.5" style="color: var(--text-muted)">{siteConfig.title.split("&")[0].trim()}</p>
-    <p class="text-xs mt-0.5" style="color: var(--text-dim)">{siteConfig.location}</p>
-  </div>
-  <div class="flex gap-2 flex-shrink-0">
-    {siteConfig.social?.linkedin && (
-      <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
-         class="w-8 h-8 rounded-lg sidebar-social flex items-center justify-center" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0-4 0"/><path d="M3 7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/>
-        </svg>
-      </a>
-    )}
-    {siteConfig.social?.github && (
-      <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
-         class="w-8 h-8 rounded-lg sidebar-social flex items-center justify-center" aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2c2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2a4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.2 4.2 0 0 0-.1 3.2a4.6 4.6 0 0 0-1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6.6-.6 1.2-.5 2v3.5"/>
-        </svg>
-      </a>
-    )}
+    <h1 class="text-lg font-bold" style="color: var(--text)">{siteConfig.name}</h1>
+    <p class="text-sm mt-1 font-medium" style="color: var(--text-muted)">{siteConfig.title.split("&")[0].trim()}</p>
+    <p class="text-xs mt-1 flex items-center gap-1" style="color: var(--text-dim)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2a7 7 0 0 1 7 7c0 4.97-7 13-7 13S5 13.97 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      {siteConfig.location}
+    </p>
+    <div class="flex gap-2 mt-3">
+      {siteConfig.social?.linkedin && (
+        <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
+           class="w-9 h-9 rounded-lg sidebar-social flex items-center justify-center" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0-4 0"/><path d="M3 7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/>
+          </svg>
+        </a>
+      )}
+      {siteConfig.social?.github && (
+        <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer"
+           class="w-9 h-9 rounded-lg sidebar-social flex items-center justify-center" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2c2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2a4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.2 4.2 0 0 0-.1 3.2a4.6 4.6 0 0 0-1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6.6-.6 1.2-.5 2v3.5"/>
+          </svg>
+        </a>
+      )}
+    </div>
   </div>
 </div>
