@@ -33,6 +33,14 @@ export const siteConfig = {
   skills: ["Python", "Machine Learning", "Geospatial Analysis", "NLP", "FastAPI"],
   projects: [
     {
+      name: "Methane Emission Detection Pipeline",
+      description:
+        "Physics-aware satellite pipeline for methane plume detection using Sentinel-2, TROPOMI, and Carbon Mapper data.",
+      link: "https://github.com/pkouridakis/",
+      categories: ["ml", "geo"],
+      skills: ["Python", "Pandas", "Scikit-learn", "Geospatial Analysis"],
+    },
+    {
       name: "Career Coach Recommender",
       description:
         "Certificate recommendation engine combining content-based filtering, co-occurrence analysis, and semantic similarity via sentence embeddings.",
