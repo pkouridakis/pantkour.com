@@ -33,9 +33,13 @@ const categoryLabels: Record<string, string> = {
                 <span class="p-skill-chip">{s}</span>
               ))}
             </div>
-            <a href={project.link} target="_blank" rel="noopener noreferrer" class="p-link">
-              Explore →
-            </a>
+            {(project as any).private ? (
+              <span class="p-private">🔒 Company Project</span>
+            ) : (project as any).contactMe ? (
+              <a href={`mailto:${siteConfig.social.email}`} class="p-link">Contact Me →</a>
+            ) : (
+              <a href={project.link} target="_blank" rel="noopener noreferrer" class="p-link">Explore →</a>
+            )}
           </div>
         </div>
       );
@@ -114,4 +118,12 @@ const categoryLabels: Record<string, string> = {
     flex-shrink: 0;
   }
   .p-link:hover { color: var(--accent); }
+  .p-private {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-dim);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 </style>

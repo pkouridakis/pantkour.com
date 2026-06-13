@@ -36,7 +36,8 @@ export const siteConfig = {
       name: "Methane Emission Detection Pipeline",
       description:
         "Physics-aware satellite pipeline for methane plume detection using Sentinel-2, TROPOMI, and Carbon Mapper data.",
-      link: "https://github.com/pkouridakis/",
+      link: "",
+      private: true,
       categories: ["ml", "geo"],
       skills: ["Python", "Pandas", "Scikit-learn", "Geospatial Analysis"],
     },
@@ -60,7 +61,8 @@ export const siteConfig = {
       name: "Wildfire Risk Platform",
       description:
         "Interactive heat map with 10-day ML-powered wildfire risk forecasts integrating geospatial, weather, and historical fire data.",
-      link: "https://github.com/pkouridakis/",
+      link: "",
+      private: true,
       categories: ["geo", "ml", "web"],
       skills: ["Python", "Geospatial Analysis", "Scikit-learn", "React.js", "PostgreSQL"],
     },
@@ -76,7 +78,8 @@ export const siteConfig = {
       name: "3D Point Cloud Analysis — Thesis",
       description:
         "Techniques for processing, visualizing, and extracting insights from large-scale 3D point cloud data.",
-      link: "https://github.com/pkouridakis/",
+      link: "",
+      contactMe: true,
       categories: ["th"],
       skills: ["Python", "Pandas", "NumPy"],
     },
